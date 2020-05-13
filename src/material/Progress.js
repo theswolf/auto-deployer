@@ -5,6 +5,8 @@ import  Paper  from "@material-ui/core/Paper";
 import  Grid  from "@material-ui/core/Grid";
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import { connect } from 'react-redux'
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,6 +16,10 @@ const useStyles = makeStyles((theme) => ({
     padding:"26px !important"
   }
 }));
+
+const mapStateToProps = (state) => {
+  return { ...state[1] }
+}
 
 const Progress = (prop) => {
 
@@ -46,4 +52,6 @@ const Progress = (prop) => {
   );
 };
 
-export default Progress;
+export default connect(
+  mapStateToProps
+)(Progress)

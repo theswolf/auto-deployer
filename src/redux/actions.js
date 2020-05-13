@@ -14,3 +14,8 @@ export const importFrom = (evt) => ({
      type: ActionTypes.IMPORT,
      payload: evt
 })
+
+export const progressLog = (msg) => ({
+     type: ActionTypes.PROGRESS_LOG,
+     payload: msg
+})
