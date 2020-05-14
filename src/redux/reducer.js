@@ -24,7 +24,6 @@ action
         case ActionTypes.TOGGLE_COMMIT:
             return {...state,isSingleCommit: !state.isSingleCommit}
         case ActionTypes.SET_VALUE:
-            debugger;
             let key = action.payload.target.id;
             let value =  action.payload.target.value;
             return {...state,[key]: value}

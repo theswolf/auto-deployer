@@ -11,6 +11,7 @@ import { connect } from 'react-redux'
 
 import { makeStyles } from '@material-ui/core/styles';
 
+const { ipcRenderer } = require("electron");
 
 
 const useStyles = makeStyles((theme) => ({
@@ -36,9 +37,9 @@ const  GitUI = (prop) => {
   }
 
   const handleSubmit = (evt) => {
-      debugger;
       console.log(evt)
       prop.history.push('/progress');
+      ipcRenderer.send("startWork",prop)
   }
 
   return (

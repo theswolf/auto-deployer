@@ -19,3 +19,7 @@ export const progressLog = (msg) => ({
      type: ActionTypes.PROGRESS_LOG,
      payload: msg
 })
+
+export const clearLog = () => ({
+     type: ActionTypes.CLEAR_LOG
+})

@@ -4,7 +4,9 @@ import Container from "@material-ui/core/Container";
 import  Paper  from "@material-ui/core/Paper";
 import  Grid  from "@material-ui/core/Grid";
 import Button from '@material-ui/core/Button';
+import StatusList from './StatusList';
 import { makeStyles } from '@material-ui/core/styles';
+import { clearLog } from '../redux/actions'
 import { connect } from 'react-redux'
 
 
@@ -17,15 +19,18 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const mapStateToProps = (state) => {
-  return { ...state[1] }
+
+const mapDispatchToProps = {
+  clearLog
 }
+
 
 const Progress = (prop) => {
 
   const classes = useStyles();
 
   const back = () => {
+    prop.clearLog()
     prop.history.push("/")
   }
 
@@ -34,10 +39,13 @@ const Progress = (prop) => {
       <React.Fragment>
         <CssBaseline />
         <Container maxWidth="sm">
-          <Paper elevation={3}>
-            <Grid container spacing={3} style={{ backgroundColor: prop.col }}>
+          <Paper elevation={3} style={{backgroundColor:"#daf578"}}>
+            <Grid container spacing={3} >
+            <Grid item xs={12} sm={12}>
+                <h2>Wait for success or fail</h2>
+              </Grid>
               <Grid item xs={12} sm={12}>
-                Suka
+                <StatusList />
               </Grid>
               <Grid item xs={12} sm={12}  className={classes.padding}>
               <Button variant="contained" color="secondary" onClick={back} style={{float:"right"}}>
@@ -52,6 +60,5 @@ const Progress = (prop) => {
   );
 };
 
-export default connect(
-  mapStateToProps
-)(Progress)
+//export default Progress
+export default connect(null, mapDispatchToProps)(Progress);

@@ -153,8 +153,7 @@ async function request({
   } else if (body) {
     body = asyncIteratorToStream(body);
   }
-  return new Promise((resolve, reject) => {
-    debugger
+  return new Promise((resolve, reject) => {   
     let opts =  {
         url,
         method,

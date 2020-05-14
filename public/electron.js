@@ -5,6 +5,8 @@ const BrowserWindow = electron.BrowserWindow;
 const path = require('path');
 const isDev = require('electron-is-dev');
 const fs = require('fs')
+const isogit = require('./isogit')
+
 
 const defaultMenu = require('electron-default-menu');
 
@@ -61,6 +63,12 @@ function createWindow() {
   ipcMain.on("userProp", (event,arg) => {
     let fileName = storeObj.fileName
     fs.writeFileSync(fileName,JSON.stringify(arg))
+  })
+
+  ipcMain.on("startWork", (event,arg) => {
+    let fn = arg.isSingleCommit && isogit.emptyCommit || isogit.standardClone;
+    fn(arg,mainWindow.webContents)
+    console.log(arg);
   })
 
   menu.splice(4, 0, {
