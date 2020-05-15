@@ -7,7 +7,7 @@ import Communicator from "./material/Communicator";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 import { createStore } from "redux";
 import { Provider } from "react-redux";
@@ -42,6 +42,7 @@ function App(prop) {
       <Switch>
         <Route exact path="/" component={GitUI} />
         <Route path="/progress" component={Progress} />
+        <Route render={() => <Redirect to="/"/>}/>
       </Switch>
     </Provider>
   );

@@ -42,13 +42,22 @@ function createWindow() {
 
   const menu = defaultMenu(app, shell);
 
-  
+  console.log('********ICONPATH*******')
+  console.log(__dirname)
+  console.log('********ICONPATH*******')
 
   mainWindow = new BrowserWindow({width: 900, height: 680,
+    icon: path.join(__dirname, '../assets/64x64.png'),
     webPreferences: {
         nodeIntegration: true
     }});
-  mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
+  
+  const url = isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`
+  console.log('********IM HERE*******')
+  console.log(url)
+  console.log('********IM HERE*******')
+  
+  mainWindow.loadURL(url);
   if (isDev) {
     // Open the DevTools.
     //BrowserWindow.addDevToolsExtension('<location to your react chrome extension>');

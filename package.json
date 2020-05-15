@@ -13,7 +13,8 @@
     },
     "files": [
       "build/**/*",
-      "node_modules/**/*"
+      "node_modules/**/*",
+      "assets/**/*"
     ],
     "directories": {
       "buildResources": "assets"
@@ -23,7 +24,7 @@
   "version": "0.1.0",
   "private": true,
   "main": "public/electron.js",
-  "homepage": "./",
+  "homepage": ".",
   "dependencies": {
     "@material-ui/core": "^4.9.14",
     "@material-ui/lab": "^4.0.0-alpha.53",
@@ -39,6 +40,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
+    "rescript": "^0.0.0",
     "rimraf": "^3.0.2",
     "simple-get": "^3.1.0",
     "tunnel": "0.0.6"
@@ -50,7 +52,7 @@
     "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron --inspect=5858 .\"",
     "postinstall": "electron-builder install-app-deps",
     "preelectron-pack": "yarn build",
-    "electron-pack": "electron-builder -mwl"
+    "electron-pack": "electron-builder -lw"
   },
   "eslintConfig": {
     "extends": "react-app"
