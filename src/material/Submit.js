@@ -63,7 +63,7 @@ const Submit = (prop) => {
             id="emptyCommit"
             name="emptyCommit"
             color="primary"
-            checked={prop.isisSingleCommit}
+            checked={prop.isSingleCommit}
             onChange={handleChange}
           />
         }
