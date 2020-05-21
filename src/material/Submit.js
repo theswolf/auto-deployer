@@ -75,9 +75,6 @@ const Submit = (prop) => {
           Vai
           </Button>
         </Grid>
-
-
-      ,
       </Grid>
     </div>
   );

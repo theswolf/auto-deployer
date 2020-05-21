@@ -3,7 +3,7 @@ const git = require("isomorphic-git");
 const http = require("./enhancedHttp");
 const fs = require("fs");
 const rimraf = require("rimraf");
-
+const {app} = require('electron');
 
 const prepare = (p) => {
   if (!!p.proxyUrl && p.proxyUrl.trim().length > 0) {
@@ -22,7 +22,7 @@ const prepare = (p) => {
 
 const startClone = (params, wc) => {
   let cfg = prepare(params);
-  let dir = path.join(process.cwd(), `${Date.now()}-AUTO-DEPLOY`);
+  let dir = path.join(app.getPath('home'), `/auto-deploy/${Date.now()}-AUTO-DEPLOY`);
 
   const info = (msg) => {
     wc.send("infoLog", msg);
@@ -149,7 +149,7 @@ const startClone = (params, wc) => {
 
 const emptyCommit = (params, wc) => {
   let cfg = prepare(params);
-  let dir = path.join(process.cwd(), `${Date.now()}-AUTO-DEPLOY`);
+  let dir = path.join(app.getPath('home'), `/auto-deploy/${Date.now()}-AUTO-DEPLOY`);
 
   const info = (msg) => {
     wc.send("infoLog", msg);
